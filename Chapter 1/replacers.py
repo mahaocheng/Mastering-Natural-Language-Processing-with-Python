@@ -38,3 +38,9 @@ class RegexpReplacer(object):
         for (pattern, repl) in self.patterns:
             (s, count) = re.subn(pattern, repl, s)
         return s
+
+class WordReplacer(object):
+    def __init__(self, word_map):
+        self.word_map = word_map
+    def replace(self, word):
+        return self.word_map.get(word, word*2)
